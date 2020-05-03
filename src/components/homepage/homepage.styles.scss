@@ -1,0 +1,39 @@
+.container {
+  width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  &-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 50px;
+  }
+}
+
+.message-box {
+  width: 46%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 12px solid #54a0ff;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.35);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.35);
+
+  &:last-of-type {
+    border: 12px solid #1dd1a1;
+  }
+}
+
+.link-btn {
+  width: 120px;
+  padding: 7px 0;
+  font-size: 14px;
+  cursor: pointer;
+}

@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-function App() {
+import './App.css';
+import Spinner from './components/spinner/spinner.component';
+import Header from './components/header/header.component';
+
+const HomePage = lazy(() => import ('./components/homepage/homepage.component'));
+const Users = lazy(() => import ('./pages/users/users.component'));
+const Posts = lazy(() => import ('./pages/posts/posts.component'));
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <Suspense fallback={<Spinner />}>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/users' component={Users} />
+          <Route path='/posts' component={Posts} />
+        </Suspense>
+      </Switch>
     </div>
   );
 }
